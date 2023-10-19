@@ -1,0 +1,12 @@
+{
+  "testMatch": [
+    "**/__tests__/*.spec.js"
+  ],
+  "collectCoverage": true,
+  "coverageDirectory": "<rootDir>/tests/unit/coverage",
+  "collectCoverageFrom": [
+    "src/**/*.js",
+    "!src/index.js",
+    "!**/node_modules/**"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "ecmaVersion": 2015
+  },
+  "rules": {
+    "semi": ["warn"],
+    "quotes": ["warn", "single"],
+    "space-before-function-paren": ["warn", "never"]
+  }
+}
