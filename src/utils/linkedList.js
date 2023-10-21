@@ -105,7 +105,8 @@ export default class LinkedList {
 
     let current = this._head;
     str = `${current.val}`;
-    while(current && current.next !== null) {
+
+    for (let i = 1; i < this._size && current != null; i++) {
       current = current.next;
       str += `,${current.val}`;
     }

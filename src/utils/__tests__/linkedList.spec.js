@@ -26,29 +26,42 @@ describe('LinkedList tests', () => {
   it('test LinkedList insert()', () => {
     linkedList = new LinkedList();
     expect(linkedList.isEmpty()).toBe(true);
-    expect(linkedList.insert(1, -1)).toBe(false);
-    expect(linkedList.isEmpty()).toBe(true);
+
+    // 测试在索引第一位插入
     expect(linkedList.insert(1, 0)).toBe(true);
     expect(linkedList.toString()).toBe('1');
     expect(linkedList.insert(0, 0)).toBe(true);
     expect(linkedList.toString()).toBe('0,1');
+
     linkedList.push(2);
     linkedList.push(3);
     expect(linkedList.toString()).toBe('0,1,2,3');
-    expect(linkedList.insert(11, 2)).toBe(true);
-    expect(linkedList.toString()).toBe('0,1,11,2,3');
+
+    // 测试在正常索引插入
+    expect(linkedList.insert(4, 2)).toBe(true);
+    expect(linkedList.toString()).toBe('0,1,4,2,3');
     expect(linkedList.insert(4, 4)).toBe(true);
-    expect(linkedList.toString()).toBe('0,1,11,2,4,3');
+    expect(linkedList.toString()).toBe('0,1,4,2,4,3');
     expect(linkedList.insert(5, 6)).toBe(true);
-    expect(linkedList.toString()).toBe('0,1,11,2,4,3,5');
+    expect(linkedList.toString()).toBe('0,1,4,2,4,3,5');
+
+    // 测试在非法索引位置插入
+    expect(linkedList.insert(1, -1)).toBe(false);
+    expect(linkedList.toString()).toBe('0,1,4,2,4,3,5');
     expect(linkedList.insert(7, 8)).toBe(false);
-    expect(linkedList.toString()).toBe('0,1,11,2,4,3,5');
+    expect(linkedList.toString()).toBe('0,1,4,2,4,3,5');
   });
 
   it('test LinkedList remove()', () => {
     expect(linkedList.toString()).toBe('1,3,2,5,6');
+
+    // 测试移除不合法值
     linkedList.remove(-1);
     expect(linkedList.toString()).toBe('1,3,2,5,6');
+    linkedList.remove(7);
+    expect(linkedList.toString()).toBe('1,3,2,5,6');
+
+    // 测试移除合法值
     linkedList.remove(1);
     expect(linkedList.toString()).toBe('3,2,5,6');
     linkedList.remove(2);
@@ -65,25 +78,34 @@ describe('LinkedList tests', () => {
 
   it('test LinkedList removeAt()', () => {
     expect(linkedList.toString()).toBe('1,3,2,5,6');
+
+    // 测试在非法索引位置移除
     linkedList.removeAt(-1);
     expect(linkedList.toString()).toBe('1,3,2,5,6');
+    linkedList.removeAt(5);
+    expect(linkedList.toString()).toBe('1,3,2,5,6');
+
+    // 测试在索引第一位移除
     linkedList.removeAt(0);
     expect(linkedList.toString()).toBe('3,2,5,6');
+    linkedList.removeAt(0);
+    expect(linkedList.toString()).toBe('2,5,6');
+
+    // 测试在正常索引位置移除
     linkedList.removeAt(1);
-    expect(linkedList.toString()).toBe('3,5,6');
-    linkedList.removeAt(2);
-    expect(linkedList.toString()).toBe('3,5');
+    expect(linkedList.toString()).toBe('2,6');
     linkedList.removeAt(1);
-    expect(linkedList.toString()).toBe('3');
-    linkedList.removeAt(2);
-    expect(linkedList.toString()).toBe('3');
+    expect(linkedList.toString()).toBe('2');
   });
 
   it('test LinkedList getNodeAt()', () => {
-    expect(linkedList.getNodeAt(-1)).toBe(null);
+    // 测试合法值
     expect(linkedList.getNodeAt(0).val).toBe(1);
     expect(linkedList.getNodeAt(2).val).toBe(2);
     expect(linkedList.getNodeAt(4).val).toBe(6);
+
+    // 测试异常值
+    expect(linkedList.getNodeAt(-1)).toBe(null);
     expect(linkedList.getNodeAt(5)).toBe(null);
   });
 
@@ -120,11 +142,14 @@ describe('LinkedList tests', () => {
   });
 
   it('test LinkedList indexOf()', () => {
+    // 测试正常索引
     expect(linkedList.indexOf(1)).toBe(0);
     expect(linkedList.indexOf(2)).toBe(2);
-    expect(linkedList.indexOf(4)).toBe(-1);
     expect(linkedList.indexOf(6)).toBe(4);
+
+    // 测试异常索引
     expect(linkedList.indexOf(10)).toBe(-1);
+    expect(linkedList.indexOf(4)).toBe(-1);
   });
 
   it('test LinkedList toString()', () => {
@@ -132,11 +157,14 @@ describe('LinkedList tests', () => {
   });
 
   it('test LinkedList _isSafeIndex()', () => {
-    expect(linkedList._isSafeIndex(-1)).toBe(false);
+    // 测试安全合法索引
     expect(linkedList._isSafeIndex(0)).toBe(true);
     expect(linkedList._isSafeIndex(2)).toBe(true);
     expect(linkedList._isSafeIndex(4)).toBe(true);
-    expect(linkedList._isSafeIndex(5)).toBe(false);
     expect(linkedList._isSafeIndex(5, true)).toBe(true);
+
+    // 测试不安全合法索引
+    expect(linkedList._isSafeIndex(-1)).toBe(false);
+    expect(linkedList._isSafeIndex(5)).toBe(false);
   });
 });
