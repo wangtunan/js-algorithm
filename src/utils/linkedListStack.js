@@ -12,6 +12,9 @@ export default class LinkedListStack {
     this._size++;
   }
   pop() {
+    if (this.isEmpty()) {
+      return undefined;
+    }
     const popVal = this.peek();
     this._head = this._head.next;
     this._size--;
