@@ -1,30 +1,24 @@
-import ListNode from './listNode.js';
+import ListNode from '../linkedList/listNode.js';
 
-export default class LinkedListQueue {
+export default class LinkedListStack {
   constructor() {
     this._head = null;
-    this._tail = null;
     this._size = 0;
   }
-  push(val) {
-    const node = new ListNode(val);
-    if (this.isEmpty()) {
-      this._head = node;
-      this._tail = node;
-    } else {
-      this._tail.next = node;
-      this._tail = node;
-    }
+  push(element) {
+    const node = new ListNode(element);
+    node.next = this._head;
+    this._head = node;
     this._size++;
   }
   pop() {
     if (this.isEmpty()) {
       return undefined;
     }
-    const peek = this.peek();
+    const popVal = this.peek();
     this._head = this._head.next;
     this._size--;
-    return peek;
+    return popVal;
   }
   peek() {
     if (this.isEmpty()) {
@@ -37,16 +31,18 @@ export default class LinkedListQueue {
   }
   clear() {
     this._head = null;
-    this._tail = null;
     this._size = 0;
   }
   getSize() {
     return this._size;
   }
   toArray() {
+    if (this.isEmpty()) {
+      return [];
+    }
     const list = new Array(this._size);
     let curr = this._head;
-    for (let i = 0; i < this._size; i++) {
+    for(let i = this._size - 1; i >= 0; i--) {
       list[i] = curr.val;
       curr = curr.next;
     }
