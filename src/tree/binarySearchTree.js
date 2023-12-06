@@ -112,18 +112,19 @@ export default class BinarySearchTree {
   }
   dfs(root, order, list) {
     let curr = root;
-    while(curr !== null) {
-      if (order === 'pre') {
-        list.push(curr.val);
-      }
-      this.dfs(curr.left, list);
-      if (order === 'in') {
-        list.push(curr.val);
-      }
-      this.dfs(curr.right, list);
-      if (order === 'post') {
-        list.push(curr.val);
-      }
+    if (curr === null) {
+      return;
+    }
+    if (order === 'pre') {
+      list.push(curr.val);
+    }
+    this.dfs(curr.left, order, list);
+    if (order === 'in') {
+      list.push(curr.val);
+    }
+    this.dfs(curr.right, order, list);
+    if (order === 'post') {
+      list.push(curr.val);
     }
   }
 }
