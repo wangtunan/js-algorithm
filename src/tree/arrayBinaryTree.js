@@ -13,19 +13,19 @@ export default class ArrayBinaryTree {
     }
     return list;
   }
-  preOrder(root) {
+  preOrder() {
     const list = [];
-    this.dfs(root, 'pre', list);
+    this.dfs(0, 'pre', list);
     return list;
   }
-  inOrder(root) {
+  inOrder() {
     const list = [];
-    this.dfs(root, 'in', list);
+    this.dfs(0, 'in', list);
     return list;
   }
-  postOrder(root) {
+  postOrder() {
     const list = [];
-    this.dfs(root, 'post', list);
+    this.dfs(0, 'post', list);
     return list;
   }
   dfs(i, order, res) {
