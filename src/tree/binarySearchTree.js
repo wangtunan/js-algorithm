@@ -1,16 +1,16 @@
 import TreeNode from './treeNode.js';
 
 export default class BinarySearchTree {
-  constructor(root) {
-    this._root = root || null;
+  constructor() {
+    this._root = null;
   }
   search(val) {
     let curr = this._root;
     while(curr !== null) {
       if (curr.val < val) {
-        curr = curr.left;
-      } else if (curr.val > val) {
         curr = curr.right;
+      } else if (curr.val > val) {
+        curr = curr.left;
       } else {
         break;
       }
@@ -59,12 +59,9 @@ export default class BinarySearchTree {
         curr = curr.left;
       }
     }
-    if (curr === null) {
-      return;
-    }
     if (curr.left === null || curr.right === null) {
       const child = curr.left || curr.right;
-      if (child === this._root) {
+      if (curr === this._root) {
         this._root = child;
       } else if (prev.left === curr) {
         prev.left = child;
@@ -73,7 +70,7 @@ export default class BinarySearchTree {
       }
     } else {
       let temp = curr.right;
-      while(temp !== null) {
+      while(temp.left !== null) {
         temp = temp.left;
       }
       this.remove(temp.val);
