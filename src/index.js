@@ -1,24 +1,22 @@
-import BinarySearchTree from '../src/tree/binarySearchTree.js';
+import Graph from './graph/adjacencyMatrixGraph.js';
 
-const list = [8, 4, 12, 2, 6, 10, 14];
-let tree = new BinarySearchTree();
+const vertices = [1, 3, 2, 5, 4];
+const edges = [
+  [0, 1], [0, 3],
+  [1, 0], [1, 2],
+  [2, 1], [2, 3], [2, 4],
+  [3, 0], [3, 2], [3, 4],
+  [4, 2], [4, 3]
+];
+const adjMat = [
+  [0, 1, 0, 1, 0],
+  [1, 0, 1, 0, 0],
+  [0, 1, 0, 1, 1],
+  [1, 0, 1, 0, 1],
+  [0, 0, 1, 1, 0]
+];
 
-list.forEach(item => {
-  tree.insert(item);
-});
+const graph = new Graph(vertices, edges);
 
-tree.remove(2);
-
-tree.remove(4);
-
-tree.remove(8);
-
-tree.remove(12);
-
-tree.remove(14);
-
-tree.remove(10);
-
-tree.remove(10);
-
-console.log(tree.preOrder());
+graph.removeVertex(6);
+console.log(graph.getSize());

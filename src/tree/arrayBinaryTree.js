@@ -1,6 +1,6 @@
 export default class ArrayBinaryTree {
   constructor(treeArray) {
-    this._tree = treeArray || [];
+    this._tree = treeArray;
   }
   levelOrder() {
     const list = [];
