@@ -1,4 +1,6 @@
 import Graph from './graph/adjacencyListGraph.js';
+import BFS from './graph/adjacencyListGraphBFS.js';
+import DFS from './graph/adjacencyListGraphDFS.js';
 
 const edges = [
   [1, 3], [1, 5],
@@ -7,5 +9,6 @@ const edges = [
 ];
 
 const graph = new Graph(edges);
-graph.removeEdge(1, 3);
-graph.removeEdge(1, 3);
+
+console.log(BFS(graph, 1));
+console.log(DFS(graph, 1));

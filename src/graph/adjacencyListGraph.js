@@ -43,6 +43,9 @@ export default class AdjacencyListGraph {
   getAdjacencyList() {
     return this._adjList;
   }
+  bfs(graph) {
+
+  }
   init(edges) {
     for (const edge of edges) {
       const [v1, v2] = edge;

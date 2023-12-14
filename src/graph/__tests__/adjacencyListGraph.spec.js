@@ -1,4 +1,6 @@
 import AdjacencyListGraph from '../adjacencyListGraph.js';
+import BFS from '../adjacencyListGraphBFS.js';
+import DFS from '../adjacencyListGraphDFS.js';
 
 const edges = [
   [1, 3], [1, 5],
@@ -99,5 +101,17 @@ describe('AdjacencyListGraph tests', () => {
     expect(graph.checkEdge(1, 2)).toBe(true);
     expect(graph.checkEdge(2, 3)).toBe(true);
     expect(graph.checkEdge(3, 4)).toBe(true);
+  });
+
+  it('test AdjacencyListGraph BFS()', () => {
+    expect(BFS(graph, 1)).toEqual([1, 3, 5, 2, 4]);
+    expect(BFS(graph, 2)).toEqual([2, 3, 4, 5, 1]);
+    expect(BFS(graph, 3)).toEqual([3, 1, 2, 5, 4]);
+  });
+
+  it('test AdjacencyListGraph DFS()', () => {
+    expect(DFS(graph, 1)).toEqual([1, 3, 2, 4, 5]);
+    expect(DFS(graph, 2)).toEqual([2, 3, 1, 5, 4]);
+    expect(DFS(graph, 3)).toEqual([3, 1, 5, 2, 4]);
   });
 });
