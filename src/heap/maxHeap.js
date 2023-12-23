@@ -1,8 +1,8 @@
 export default class MaxHeap {
   constructor(nums) {
-    this._maxHeap = nums;
+    this._maxHeap = nums || [];
     const size = this.size() - 1;
-    for (let i = this.parent(size); i >= 0 ; i++) {
+    for (let i = this.parent(size); i >= 0 ; i--) {
       this.siftDown(i);
     }
   }
@@ -29,10 +29,10 @@ export default class MaxHeap {
     return this.size() === 0;
   }
   left(i) {
-    return 2 * i - 1;
+    return 2 * i + 1;
   }
   right(i) {
-    return 2 * i + 1;
+    return 2 * i + 2;
   }
   parent(i) {
     return Math.floor((i - 1) / 2);
@@ -45,7 +45,7 @@ export default class MaxHeap {
   siftUp(i) {
     while (true) {
       const p = this.parent(i);
-      if (p < 0 || this._maxHeap[i] <= this._maxHeap(p)) {
+      if (p < 0 || this._maxHeap[i] <= this._maxHeap[p]) {
         break;
       }
       this.swap(i, p);
@@ -66,7 +66,7 @@ export default class MaxHeap {
       if (m === i) {
         break;
       }
-      this.swap(m, i);
+      this.swap(i, m);
       i = m;
     }
   }

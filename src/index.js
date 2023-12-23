@@ -1,14 +1,7 @@
-import Graph from './graph/adjacencyListGraph.js';
-import BFS from './graph/adjacencyListGraphBFS.js';
-import DFS from './graph/adjacencyListGraphDFS.js';
+import MaxHeap from './heap/maxHeap.js';
 
-const edges = [
-  [1, 3], [1, 5],
-  [2, 3], [2, 4], [2, 5],
-  [4, 5]
-];
 
-const graph = new Graph(edges);
+const nums = [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2];
+let heap = new MaxHeap();
 
-console.log(BFS(graph, 1));
-console.log(DFS(graph, 1));
+console.log(heap._maxHeap);
