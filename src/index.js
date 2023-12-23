@@ -1,7 +1,5 @@
-import MaxHeap from './heap/maxHeap.js';
+import TopKHeap from './heap/topKHeap.js';
 
+const topKHeap = new TopKHeap([1, 7, 6, 3, 2], 3);
 
-const nums = [9, 8, 6, 6, 7, 5, 2, 1, 4, 3, 6, 2];
-let heap = new MaxHeap();
-
-console.log(heap._maxHeap);
+console.log(topKHeap.getHeap());
