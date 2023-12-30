@@ -5,7 +5,7 @@ describe('Top K Heap tests()', () => {
   it('test Top 0 in Heap', () => {
     const topKHeap = new TopKHeap([], 0);
     expect(topKHeap.getHeap()).toEqual([]);
-  })
+  });
   
   it('test Top 1 in Heap', () => {
     const topKHeap = new TopKHeap([...nums], 1);
