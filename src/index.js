@@ -1,5 +1,3 @@
-import TopKHeap from './heap/topKHeap.js';
+import quickSort from './sort/quickSort.js';
 
-const topKHeap = new TopKHeap([1, 7, 6, 3, 2], 3);
-
-console.log(topKHeap.getHeap());
+console.log(quickSort([2, 4, 1, 0, 3, 5], 0, 5));
