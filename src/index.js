@@ -1,3 +1,3 @@
-import quickSort from './sort/quickSort.js';
+import heapSort from './sort/heapSort.js';
 
-console.log(quickSort([2, 4, 1, 0, 3, 5], 0, 5));
+console.log(heapSort([2, 4, 1, 0, 3, 5]));
