@@ -1,3 +1,3 @@
-import heapSort from './sort/heapSort.js';
+import countSort from './sort/countSort.js';
 
-console.log(heapSort([2, 4, 1, 0, 3, 5]));
+console.log(countSort([1, 0, 1, 2, 0, 4, 0, 2, 2, 4]));

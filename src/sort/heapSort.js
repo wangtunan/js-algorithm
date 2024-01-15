@@ -30,5 +30,5 @@ export default function heapSort(nums) {
     // 从根节点开始，重新进行堆化
     siftDown(nums, i, 0);
   }
-  return nums
+  return nums;
 }
