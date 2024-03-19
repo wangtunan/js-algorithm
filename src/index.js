@@ -1,7 +1,3 @@
-import solveHanota from './divideAndConquer/solveHanota.js';
+import { subsetSumHasEqualValue } from './backTracking/subsetSum.js';
 
-const source = [1, 2, 3, 4, 5]
-const buffer = []
-const target = []
-const root = solveHanota(source, buffer, target);
-console.log(source, buffer, target);
+console.log(subsetSumHasEqualValue([4, 4, 5], 9));
