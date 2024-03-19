@@ -1,3 +1,3 @@
-import { subsetSumHasEqualValue } from './backTracking/subsetSum.js';
+import { nQueue } from './backTracking/nQueue.js';
 
-console.log(subsetSumHasEqualValue([4, 4, 5], 9));
+console.log(nQueue(4));
