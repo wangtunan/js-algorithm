@@ -1,3 +1,3 @@
-import { nQueue } from './backTracking/nQueue.js';
+import climbingStairsBacktrack from './dynamicProgramming/backTracking.js';
 
-console.log(nQueue(4));
+console.log(climbingStairsBacktrack(3));
