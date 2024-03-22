@@ -1,3 +1,3 @@
-import climbingStairsBacktrack from './dynamicProgramming/backTracking.js';
+import climbingStairsDP from './dynamicProgramming/dp.js';
 
-console.log(climbingStairsBacktrack(3));
+console.log(climbingStairsDP(5));
