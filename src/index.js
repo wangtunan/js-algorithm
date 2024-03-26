@@ -1,3 +1,3 @@
-import climbingStairsDP from './dynamicProgramming/dp.js';
+import minCostClimbingStairsDP from './dynamicProgramming/minCost.js';
 
-console.log(climbingStairsDP(5));
+console.log(minCostClimbingStairsDP([0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]));
