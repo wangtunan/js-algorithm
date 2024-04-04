@@ -1,3 +1,3 @@
-import minCostClimbingStairsDP from './dynamicProgramming/minCost.js';
+import { grid, minPathSumDPComp } from './dynamicProgramming/minPathSum.js';
 
-console.log(minCostClimbingStairsDP([0, 1, 10, 1, 1, 1, 10, 1, 1, 10, 1]));
+console.log(minPathSumDPComp(grid));
