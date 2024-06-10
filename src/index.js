@@ -1,6 +1,5 @@
-import { coinChangeIIDPComp } from './dynamicProgramming/unboundedKnapsack.js';
+import { editDistanceDPComp } from './dynamicProgramming/editDistance.js';
 
-const coins = [1, 2, 5];
-const amt = 5;
-
-console.log(coinChangeIIDPComp(coins, amt));
+const s = 'bag';
+const t = 'pack';
+console.log(editDistanceDPComp(s, t));
